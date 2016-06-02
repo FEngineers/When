@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <style>
+    .grid {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -o-flex;
+      display: -ms-flex;
+      display: flex;
+    }
+    .col {
+      padding: 30px;
+    }
+    .fluid {
+      flex: 1;
+      background-color: #99ccff;
+    }
+    .fixed {
+      width: 400px;
+      background-color: #ffcc99;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+<div class="grid">
+  <div class="col fluid">
+    ...
+  </div>
+  <div class="col fixed">
+    ...
+  </div>
+  <div class="col fluid">
+    ...
+  </div>
+</div>
+</body>
+</html>

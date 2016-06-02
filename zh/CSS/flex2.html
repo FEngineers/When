@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    html, body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .grid {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .col {
+      flex-shrink: 0;
+    }
+    .fluid {
+      flex: 1;
+      background-color: #99ccff;
+    }
+    .fixed {
+      height: 200px;
+      background-color: #ffcc99;
+      border: 1px solid #333;
+    }
+    .box {
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+<div class="grid">
+
+  <div class="col fixed">
+    ...
+  </div>
+  <div class="col fluid">
+    ...
+  </div>
+  <div class="col fixed">
+    ...
+  </div>
+  <div class="col fluid">
+    <div class="box"></div>
+  </div>
+</div>
+</body>
+</html>

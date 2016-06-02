@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <style>
+    .flex-container {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+    }
+
+    h1 {
+      padding-left: .5em;
+    }
+
+    .longhand {
+      /*flex-flow: wrap row;*/
+      flex-flow: row wrap;
+    }
+
+    .longhand li {
+      background: deepskyblue;
+    }
+
+    .flex-item {
+      background: tomato;
+      padding: 5px;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+
+      line-height: 100px;
+      color: white;
+      font-weight: bold;
+      font-size: 2em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<h1>flex-wrap: wrap; flex-direction: row;</h1>
+<ul class="flex-container longhand">
+  <li class="flex-item">1</li>
+  <li class="flex-item">2</li>
+  <li class="flex-item">3</li>
+  <li class="flex-item">4</li>
+</ul>
+</body>
+</html>

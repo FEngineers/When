@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div contenteditable="true">
+  <p>
+    A Range identifies a range of content in a Document, DocumentFragment or Attr.
+    It is contiguous in the sense that it can be characterized as selecting all of the content between a pair of
+    boundary-points.
+  </p>
+
+  <p>
+    Note: In a text editor or a word processor, a user can make a selection by pressing down the mouse at one point in a
+    document,
+    moving the mouse to another point, and releasing the mouse.
+    The resulting selection is contiguous and consists of the content between the two points.
+  </p>
+
+  <p>
+    The term 'selecting' does not mean that every Range corresponds to a selection made by a GUI user;
+    however, such a selection can be returned to a DOM user as a Range.
+  </p>
+
+  <p>
+    Note: In bidirectional writing (Arabic, Hebrew), a range may correspond to a logical selection that is not necessarily
+    contiguous when displayed.
+    A visually contiguous selection, also used in some cases, may not correspond to a single logical selection,
+    and may therefore have to be represented by more than one range.
+  </p>
+
+  <p>
+    The Range interface provides methods for accessing and manipulating the document tree at a higher level than
+    similar methods in the Node interface. The expectation is that each of the methods provided by the Range interface for
+    the insertion,
+    deletion and copying of content can be directly mapped to a series of Node editing operations enabled by DOM Core.
+    In this sense, the Range operations can be viewed as convenience methods that also enable the implementation to
+    optimize common editing patterns.
+  </p>
+</div>
+
+
+
+
+<script>
+  // 需要在页面上监听哪些事件
+  // onclick, onkeyup, onkeydown, onkeypress, onmouseup, onmousedown
+
+
+
+
+
+  document.body.addEventListener('click', function(data) {
+    console.log('data::', data);
+
+    // srcElement
+    // target
+    // toElement
+    console.log(data.target.selectionStart, data.target.selectionEnd);
+
+
+
+  }, false);
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<html lang="en">
+<head>
+  <title>INPUT FIELDS: Cursor Position Control Example</title>
+  <style type="text/css">
+    body { margin: 32px; font-family: Verdana, sans-serif; font-size: 13px; }
+    input { width: 50%; font-family: Verdana, sans-serif; font-size: 13px; text-indent: 2px; }
+
+    #leftbox { text-align: right; color: #666; }
+    #rightbox { text-align: left; color: #666; }
+
+    .clearer { clear: both; height: 0px; }
+
+    .title { font-size: 18px; font-weight: bolder; }
+    .columns { width: 50%; float: left; }
+
+    .box {
+      margin-top: 2px;
+      margin-left: 2px;
+      text-indent: 3px;
+    }
+
+    .labels {
+      color: #00c;
+      border: 1px solid #00c;
+      background-color: #9cf;
+    }
+
+    .values {
+      color: #c00;
+      border: 1px solid #c00;
+      background-color: #fc9;
+    }
+
+    .scrollLeft {
+      text-align: right;
+      color: #090;
+      border: 1px solid #090;
+      background-color: #9fc;
+    }
+
+    .scrollRight {
+      text-align: left;
+      color: #090;
+      border: 1px solid #090;
+      background-color: #9fc;
+    }
+  </style>
+  <script>
+    var sb = [
+      'leftbox', 'rightbox', 'scrollLeft', 'scrollRight', 'caretPos', 'maxLength',
+      'textLength', 'availLength', 'beforeCaret', 'afterCaret', 'selectedText'
+    ];
+
+    var leftbox = {};
+    var rightbox = {};
+    var scrollLeft = {};
+    var scrollRight = {};
+    var caretPos = {};
+    var maxLength = {};
+    var textLength = {};
+    var availLength = {};
+    var beforeCaret = {};
+    var afterCaret = {};
+    var selectedText = {};
+
+    var os = 0;
+    var oe = 0;
+    function update(o) {
+      console.log('o:::', o);
+      var t = o.innerText;//o.value;
+      var s = getSelectionStart(o), e = getSelectionEnd(o);
+      if (s == os && e == oe) return;
+      caretPos.firstChild.nodeValue = s;
+      maxLength.firstChild.nodeValue = o.getAttribute('maxLength');
+      textLength.firstChild.nodeValue = t.length;
+      availLength.firstChild.nodeValue = o.getAttribute('maxLength') - t.length;
+      afterCaret.firstChild.nodeValue = t.substring(s).replace(/ /g, '\xa0') || '\xa0';
+      beforeCaret.firstChild.nodeValue = t.substring(0, s).replace(/ /g, '\xa0') || '\xa0';
+      selectedText.firstChild.nodeValue = t.substring(s, e).replace(/ /g, '\xa0') || '\xa0';
+      rightbox.value = scrollRight.firstChild.nodeValue = t.substring(s).replace(/ /g, '\xa0') || '\xa0';
+      leftbox.value = scrollLeft.firstChild.nodeValue = t.substring(0, s).replace(/ /g, '\xa0') || '\xa0';
+      os = s;
+      oe = e;
+      return true
+    }
+
+    function setup() {
+      leftbox = document.getElementById('leftbox');
+      rightbox = document.getElementById('rightbox');
+      scrollLeft = document.getElementById('scrollLeft');
+      scrollRight = document.getElementById('scrollRight');
+      caretPos = document.getElementById('caretPos');
+      maxLength = document.getElementById('maxLength');
+      textLength = document.getElementById('textLength');
+      availLength = document.getElementById('availLength');
+      beforeCaret = document.getElementById('beforeCaret');
+      afterCaret = document.getElementById('afterCaret');
+      selectedText = document.getElementById('selectedText');
+
+      update(document.getElementById('textbox'))
+    }
+
+    function getSelectionStart(o) {
+      if (o.createTextRange) {
+        var r = document.selection.createRange().duplicate();
+        r.moveEnd('character', o.value.length);
+        if (r.text == '') return o.value.length;
+        return o.value.lastIndexOf(r.text)
+      } else return o.selectionStart
+    }
+
+    function getSelectionEnd(o) {
+      if (o.createTextRange) {
+        var r = document.selection.createRange().duplicate();
+        r.moveStart('character', -o.value.length);
+        return r.text.length;
+      } else return o.selectionEnd
+    }
+  </script>
+</head>
+<body onload="setup()">
+<div>
+  <div class="title">INPUT FIELDS: Cursor Position Control Example</div>
+  <hr size="1">
+  <div>
+    <p>Click in the following input box, scroll with the arrow keys and watch.
+      Use Home, End and Arrows keys or the mouse to change the cursor position.
+      To test <b>"selection"</b> use the mouse or the SHIFT/CTRL key in combination
+      with the above keys to select part of the text or jump between words in it.</p>
+  </div>
+  <div contenteditable="true" id="textbox" onclick="return(update(this))"
+       onkeyup="return(update(this))"
+       onkeydown="return(update(this))"
+       onkeypress="return(update(this))"
+       onmouseup="return(update(this))"
+       onmousedown="return(update(this))">
+    <p>
+      A Range identifies a range of content in a Document, DocumentFragment or Attr.
+      It is contiguous in the sense that it can be characterized as selecting all of the content between a pair of
+      boundary-points.
+    </p>
+    <!--<div>-->
+    <!--<p>-->
+    <!--<input class="input" id="textbox" maxlength="32" value="Do it here !!!"-->
+    <!--onclick="return(update(this))"-->
+    <!--onkeyup="return(update(this))"-->
+    <!--onkeydown="return(update(this))"-->
+    <!--onkeypress="return(update(this))"-->
+    <!--onmouseup="return(update(this))"-->
+    <!--onmousedown="return(update(this))"/>-->
+    <!--</p>-->
+    <!--</div>-->
+
+    <div><p>A nice effect with two INPUT boxes showing <i>"beforeCaret"</i> and <i>"afterCaret"</i> parts.</p></div>
+    <div>
+      <p>
+        <label for="leftbox"><input id="leftbox" maxlength="32" value="TEST" disabled/></label><label
+        for="rightbox"><input id="rightbox" maxlength="32" value="TEST" disabled/></label>
+      </p>
+    </div>
+
+    <div><p>The same effect obtained using two DIVs, text scrolls as you move the cursor.</p></div>
+    <div class="columns">
+      <div class="scrollLeft box" id="scrollLeft">&nbsp;</div>
+    </div>
+    <div class="columns">
+      <div class="scrollRight box" id="scrollRight">&nbsp;</div>
+    </div>
+    <div class="clearer">&nbsp;</div>
+
+    <div><p>The informations we can lookup by using the <i>"selectionStart"</i>, <i>"selectionEnd"</i> and other element
+      properties.</p></div>
+    <div class="columns">
+      <div class="labels box">Caret Position</div>
+      <div class="labels box">Max Length</div>
+      <div class="labels box">Text Length</div>
+      <div class="labels box">Avail Length</div>
+      <div class="labels box">Before Caret</div>
+      <div class="labels box">After Caret</div>
+      <div class="labels box">Selected Text</div>
+    </div>
+    <div class="columns">
+      <div class="values box" id="caretPos">&nbsp;</div>
+      <div class="values box" id="maxLength">&nbsp;</div>
+      <div class="values box" id="textLength">&nbsp;</div>
+      <div class="values box" id="availLength">&nbsp;</div>
+      <div class="values box" id="beforeCaret">&nbsp;</div>
+      <div class="values box" id="afterCaret">&nbsp;</div>
+      <div class="values box" id="selectedText">&nbsp;</div>
+    </div>
+    <div class="clearer">&nbsp;</div>
+  </div>
+</body>
+</html>
