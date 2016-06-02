@@ -1,3 +1,5 @@
 * JavaScript
     * [eval](JavaScript/eval.md)
-    * [eval](JavaScript/Range.md)
+    * [Range](JavaScript/Range.md)
+* Test
+    * [Sinon.js](Test/Sinon.md)
