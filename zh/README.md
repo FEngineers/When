@@ -7,6 +7,3 @@
 什么时候会用到他们
 
 ![Timeline](./images/understand.jpg)
-
-
-![Timeline](./images/understood.jpg)
