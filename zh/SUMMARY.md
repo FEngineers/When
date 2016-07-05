@@ -1,5 +1,6 @@
 * JavaScript
     * [eval](JavaScript/eval.md)
+    * [new](JavaScript/new.md)
     * [Range](JavaScript/Range.md)
 * 算法
     * [递归](Algorithm/Recursion.md)
