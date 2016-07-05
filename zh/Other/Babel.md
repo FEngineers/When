@@ -10,6 +10,11 @@ babel有不同的版本，现在一般用的多的是babel5和babel6
 
 
 
+# babel-plugin-transform-runtime
+
+# babel-runtime
+
+
 [babel6 升级总结](https://segmentfault.com/a/1190000004301150)
 [走进Babel 6.0 全新特性解析](http://www.csdn.net/article/2015-11-17/2826233)
 [在node中使用babel6的一些简单分享](https://cnodejs.org/topic/56460e0d89b4b49902e7fbd3)

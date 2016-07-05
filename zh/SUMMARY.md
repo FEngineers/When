@@ -1,7 +1,9 @@
 * JavaScript
     * [eval](JavaScript/eval.md)
     * [Range](JavaScript/Range.md)
-* Algorithm
+* 算法
     * [递归](Algorithm/Recursion.md)
 * Test
     * [Sinon.js](Test/Sinon.md)
+* 其他
+    * [Webpack](Other/Webpack.md)
