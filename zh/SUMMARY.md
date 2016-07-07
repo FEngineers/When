@@ -1,9 +1,12 @@
+* [GitHub](https://github.com/gyf1/When)
 * JavaScript
     * [eval](JavaScript/eval.md)
     * [new](JavaScript/new.md)
     * [Range](JavaScript/Range.md)
 * 算法
     * [递归](Algorithm/Recursion.md)
+* 模式
+    * [单例模式](Pattern/Singleton.md)
 * Test
     * [Sinon.js](Test/Sinon.md)
 * 其他
