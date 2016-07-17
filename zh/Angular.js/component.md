@@ -1,10 +1,5 @@
-
-
-
-
-
-# 如何使用
-## bindings
+# 一、如何使用
+## 1.bindings
 提供了三种绑定的方式
 ### '<'
 单向绑定，在当前的component里面修改了这个值后，不会影响到parent。
@@ -20,6 +15,6 @@
 输出，提供组件的回调函数
 
 
-## transclude
+## 2.transclude
 component里面还可以插入component
 

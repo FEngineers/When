@@ -39,6 +39,7 @@ prod.config
 
 
 
+
 http://www.webpackbin.com/
 
 
@@ -57,3 +58,8 @@ https://www.youtube.com/watch?v=VkTCL6Nqm6Y&feature=youtu.be
 
 一定有通过require等方式引用过图片
 
+
+
+
+webpack
+output libraryTarget的属性
