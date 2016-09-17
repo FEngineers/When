@@ -9,6 +9,8 @@
     * [递归](Algorithm/Recursion.md)
 * 模式
     * [单例模式](Pattern/Singleton.md)
+* Angular
+    * [Decorators](Angular.js/Decorators.md)
 * Test
     * [Sinon.js](Test/Sinon.md)
 * 其他
